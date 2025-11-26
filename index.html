@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Universe Digitizing – Embroidery Designs</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body class="bg-white text-gray-800">
+    <!-- Navbar -->
+    <nav class="w-full shadow-md bg-white fixed top-0 left-0 z-50">
+      <div
+        class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-2xl font-bold tracking-wide">Universe Digitizing</h1>
+        <ul class="hidden md:flex gap-6 font-medium">
+          <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+          <li><a href="#services" class="hover:text-blue-600">Services</a></li>
+          <li><a href="#pricing" class="hover:text-blue-600">Pricing</a></li>
+          <li><a href="#faq" class="hover:text-blue-600">FAQ</a></li>
+          <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+          <li><a href="#payment" class="hover:text-blue-600">Payments</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="pt-28 pb-16 bg-gradient-to-r from-blue-50 to-pink-50"
+    >
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-4xl md:text-5xl font-extrabold">
+          High-Quality Embroidery Digitizing Services
+        </h2>
+        <p class="mt-4 text-lg text-gray-700">
+          Fast delivery • International clients • Premium stitch quality
+        </p>
+      </div>
+    </section>
+
+    <!-- GALLERY - Center-focus peek slider (transparent background, constrained size) -->
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="max-w-7xl mx-auto px-6 py-16">
+      <h2 class="text-4xl font-bold text-center mb-10">Gallery</h2>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+      >
+        <img
+          src="src/images/img1.jpg"
+          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+        />
+        <img
+          src="src/images/img2.jpg"
+          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+        />
+        <img
+          src="src/images/img3.jpg"
+          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+        />
+        <img
+          src="src/images/img4.jpg"
+          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+        />
+        <img
+          src="src/images/img5.jpg"
+          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+        />
+
+        <img
+          src="src/images/img6.jpg"
+          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+        />
+        <img
+          src="src/images/img7.jpg"
+          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+        />
+        <img
+          src="src/images/img8.jpg"
+          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+        />
+        <img
+          src="src/images/img9.jpg"
+          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+        />
+        <img
+          src="src/images/img10.jpg"
+          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+        />
+      </div>
+    </section>
+
+    <!-- POPUP VIEWER -->
+    <div
+      id="imageModal"
+      class="fixed inset-0 hidden flex items-center justify-center backdrop-blur-sm bg-transparent z-50"
+    >
+      <!-- Wrapper for image + buttons -->
+      <!-- Wrapper for image + buttons -->
+      <div class="relative inline-block">
+        <!-- Image -->
+        <img
+          id="modalImg"
+          class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg transition-transform duration-300"
+        />
+
+        <!-- Button Row (right side) -->
+        <div
+          class="absolute top-4 right-4 md:-right-20 flex gap-3 md:flex-row flex-col md:flex-col"
+        >
+          <button
+            id="zoomInBtn"
+            class="bg-white text-black w-10 h-10 rounded-full shadow-lg text-2xl flex items-center justify-center font-bold"
+          >
+            +
+          </button>
+
+          <button
+            id="zoomOutBtn"
+            class="bg-white text-black w-10 h-10 rounded-full shadow-lg text-2xl flex items-center justify-center font-bold"
+          >
+            −
+          </button>
+
+          <button
+            id="closeBtn"
+            class="bg-white text-black w-10 h-10 rounded-full shadow-lg text-3xl flex items-center justify-center font-bold"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      #imageModal {
+        background: rgba(255, 255, 255, 0); /* fully transparent */
+      }
+
+      #modalImg {
+        transform: scale(1);
+      }
+
+      #closeBtn,
+      #zoomInBtn,
+      #zoomOutBtn {
+        color: black; /* change to white if your background is dark */
+        background: rgba(255, 255, 255, 0.8);
+        padding: 4px 10px;
+        border-radius: 6px;
+        backdrop-filter: blur(5px);
+      }
+
+      #closeBtn:hover,
+      #zoomInBtn:hover,
+      #zoomOutBtn:hover {
+        background: rgba(255, 255, 255, 1);
+      }
+    </style>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-gray-50 py-16">
+      <div class="max-w-6xl mx-auto px-6">
+        <h3 class="text-3xl font-bold text-center mb-10">Our Services</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Service 1 -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition border"
+          >
+            <h4 class="text-xl font-semibold mb-3">Embroidery Digitizing</h4>
+            <p class="text-gray-700">
+              We convert your artwork into high-quality embroidery-ready files
+              with clean stitches and excellent precision.
+            </p>
+          </div>
+
+          <!-- Service 2 -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition border"
+          >
+            <h4 class="text-xl font-semibold mb-3">Logo Digitizing</h4>
+            <p class="text-gray-700">
+              Perfect for caps, T-shirts, jackets, patches, uniforms, and brand
+              merchandise.
+            </p>
+          </div>
+
+          <!-- Service 3 -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition border"
+          >
+            <h4 class="text-xl font-semibold mb-3">3D Puff Digitizing</h4>
+            <p class="text-gray-700">
+              Designs prepared specifically for 3D foam embroidery with proper
+              capping and padding.
+            </p>
+          </div>
+
+          <!-- Service 4 -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition border"
+          >
+            <h4 class="text-xl font-semibold mb-3">Custom Patch Designs</h4>
+            <p class="text-gray-700">
+              Personalized patch digitizing for bikers, clubs, military units,
+              events, and more.
+            </p>
+          </div>
+
+          <!-- Service 5 -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition border"
+          >
+            <h4 class="text-xl font-semibold mb-3">Appliqué Digitizing</h4>
+            <p class="text-gray-700">
+              Digitizing designs that use fabric pieces, reducing stitch count
+              and production time.
+            </p>
+          </div>
+
+          <!-- Service 6 -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition border"
+          >
+            <h4 class="text-xl font-semibold mb-3">Multi-Format Output</h4>
+            <p class="text-gray-700">
+              Receive files in EMB, DST, PES, EXP and other machine-compatible
+              formats.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h3 class="text-3xl font-bold text-center mb-10">Pricing</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Table 1 -->
+          <div class="border shadow-lg rounded-xl overflow-hidden">
+            <h4 class="text-xl font-semibold bg-gray-100 px-6 py-4 border-b">
+              Digitizing Pricing
+            </h4>
+
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-gray-50 border-b">
+                  <th class="p-3 font-medium">Design Type</th>
+                  <th class="p-3 font-medium">Price (USD)</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr class="border-b">
+                  <td class="p-3">Normal service (24 hrs)</td>
+                  <td class="p-3">$1 per 2000 Stitches</td>
+                </tr>
+
+                <tr class="border-b">
+                  <td class="p-3">Same day (12 hrs)</td>
+                  <td class="p-3">As per design</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Table 2 -->
+          <div class="border shadow-lg rounded-xl overflow-hidden">
+            <h4 class="text-xl font-semibold bg-gray-100 px-6 py-4 border-b">
+              Editing Pricing
+            </h4>
+
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-gray-50 border-b">
+                  <th class="p-3 font-medium">Editing Category</th>
+                  <th class="p-3 font-medium">Price (USD)</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr class="border-b">
+                  <td class="p-3">Down/Up size less than 30%</td>
+                  <td class="p-3">Free</td>
+                </tr>
+
+                <tr class="border-b">
+                  <td class="p-3">Down/Up size more than 30%</td>
+                  <td class="p-3">Fee Applicable</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-gray-50">
+      <h2 class="text-4xl font-bold text-center mb-10">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="max-w-3xl mx-auto space-y-6">
+        <details
+          class="p-6 border rounded-xl shadow-sm cursor-pointer bg-white"
+        >
+          <summary class="text-xl font-semibold">
+            What services do you offer?
+          </summary>
+          <p class="mt-3 text-gray-600">
+            We offer a wide range of web development services including frontend
+            development, backend development, UI/UX design, API integration,
+            cloud deployment, and ongoing maintenance.
+          </p>
+        </details>
+
+        <details
+          class="p-6 border rounded-xl shadow-sm cursor-pointer bg-white"
+        >
+          <summary class="text-xl font-semibold">
+            How long does a project usually take?
+          </summary>
+          <p class="mt-3 text-gray-600">
+            Project timelines vary depending on complexity, but most projects
+            take between 2 to 8 weeks.
+          </p>
+        </details>
+
+        <details
+          class="p-6 border rounded-xl shadow-sm cursor-pointer bg-white"
+        >
+          <summary class="text-xl font-semibold">
+            Do you offer ongoing support after the project is completed?
+          </summary>
+          <p class="mt-3 text-gray-600">
+            Yes, we provide ongoing support, maintenance, and feature updates
+            based on your needs.
+          </p>
+        </details>
+
+        <details
+          class="p-6 border rounded-xl shadow-sm cursor-pointer bg-white"
+        >
+          <summary class="text-xl font-semibold">How do payments work?</summary>
+          <p class="mt-3 text-gray-600">
+            Payments are structured in milestones—an upfront amount, mid-project
+            payment, and final payment after completion.
+          </p>
+        </details>
+
+        <details
+          class="p-6 border rounded-xl shadow-sm cursor-pointer bg-white"
+        >
+          <summary class="text-xl font-semibold">
+            Can you redesign my existing website?
+          </summary>
+          <p class="mt-3 text-gray-600">
+            Absolutely! We can modernize, optimize, and improve both design and
+            performance of your current website.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+      <h2 class="text-4xl font-bold text-center mb-10">Contact Us</h2>
+
+      <div class="max-w-3xl mx-auto space-y-6">
+        <!-- Contact Details -->
+        <div class="space-y-3">
+          <p class="text-lg">
+            <span class="font-semibold">Email:</span>
+            unidigitizing2525@gmail.com
+          </p>
+          <p class="text-lg">
+            <span class="font-semibold">Location:</span> Available Worldwide
+          </p>
+          <p class="text-lg">
+            <span class="font-semibold">Business Hours:</span> 24/7
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="payment" class="py-20 bg-gray-50">
+      <h2 class="text-4xl font-bold text-center mb-10">Payment Details</h2>
+
+      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <!-- International Clients -->
+        <div class="p-6 border rounded-xl shadow-sm bg-white">
+          <h3 class="text-2xl font-semibold mb-3">For payment, contact us</h3>
+          <ul class="text-gray-600 ml-5 list-disc">
+            <li>unidigitizing2525@gmail.com</li>
+          </ul>
+          <p class="mt-3 text-gray-600">
+            Invoices will be shared digitally before payment.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-6">
+      <p class="text-center">
+        © 2025 Universe Digitizing. All Rights Reserved.
+      </p>
+    </footer>
+
+    <script>
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+      const zoomInBtn = document.getElementById("zoomInBtn");
+      const zoomOutBtn = document.getElementById("zoomOutBtn");
+      const closeBtn = document.getElementById("closeBtn");
+
+      let scale = 1;
+
+      document.querySelectorAll(".gallery-img").forEach((img) => {
+        img.addEventListener("click", () => {
+          modal.classList.remove("hidden");
+          modalImg.src = img.src;
+          scale = 1;
+          modalImg.style.transform = "scale(1)";
+        });
+      });
+
+      zoomInBtn.addEventListener("click", () => {
+        scale += 0.1;
+        modalImg.style.transform = `scale(${scale})`;
+      });
+
+      zoomOutBtn.addEventListener("click", () => {
+        if (scale > 0.2) {
+          scale -= 0.1;
+          modalImg.style.transform = `scale(${scale})`;
+        }
+      });
+
+      closeBtn.addEventListener("click", () => {
+        modal.classList.add("hidden");
+      });
+    </script>
+  </body>
+</html>

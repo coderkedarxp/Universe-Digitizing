@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Build output ( Tailwind compiled CSS )
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# Temporary files
+*.tmp
+*.log
+
+# VS Code settings (optional)
+.vscode/
