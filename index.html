@@ -5,406 +5,421 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Universe Digitizing – Embroidery Designs</title>
     <link rel="stylesheet" href="output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
   <body class="bg-white text-gray-800">
     <!-- Navbar -->
-    <nav class="w-full shadow-md bg-white fixed top-0 left-0 z-50">
-      <div
-        class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"
-      >
-        <h1 class="text-2xl font-bold tracking-wide">Universe Digitizing</h1>
-        <ul class="hidden md:flex gap-6 font-medium">
-          <li><a href="#home" class="hover:text-blue-600">Home</a></li>
-          <li><a href="#services" class="hover:text-blue-600">Services</a></li>
-          <li><a href="#pricing" class="hover:text-blue-600">Pricing</a></li>
-          <li><a href="#faq" class="hover:text-blue-600">FAQ</a></li>
-          <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
-          <li><a href="#payment" class="hover:text-blue-600">Payments</a></li>
-        </ul>
+    <nav class="fixed top-0 left-0 w-full z-50 nav-blur shadow-sm">
+      <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="#home" class="flex items-center gap-3">
+          <img src="src/images/logosmall.jpg" class="h-8 w-auto rounded" alt="Logo">
+          <div>
+            <div class="text-xl font-bold" style="font-family: 'Playfair Display', serif">Universe Digitizing</div>
+            <div class="text-xs text-gray-600">Premium Embroidery Services</div>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center space-x-6 text-gray-700">
+          <a href="#services" class="hover:text-indigo-600 transition">Services</a>
+          <a href="#pricing" class="hover:text-indigo-600 transition">Pricing</a>
+          <a href="#gallery" class="hover:text-indigo-600 transition">Gallery</a>
+          <a href="#faq" class="hover:text-indigo-600 transition">FAQ</a>
+          <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+          <a href="#payment" class="hover:text-indigo-600 transition">Payment</a>
+          <a href="#contact" class="gradient-btn">Get a Quote</a>
+        </div>
+
+        <div class="md:hidden">
+          <button id="mobileBtn" aria-expanded="false" class="p-2 rounded-md text-gray-700 bg-white/60 shadow">
+            <svg id="mobileIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="hidden md:hidden border-t">
+        <div class="px-6 py-4 space-y-3">
+          <a href="#services" class="block">Services</a>
+          <a href="#pricing" class="block">Pricing</a>
+          <a href="#gallery" class="block">Gallery</a>
+          <a href="#faq" class="block">FAQ</a>
+          <a href="#contact" class="block">Contact</a>
+          <a href="#payment" class="block">Payment</a>
+          <a href="#contact" class="block gradient-btn text-center mt-2">Get a Quote</a>
+        </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section
-      id="home"
-      class="pt-28 pb-16 bg-gradient-to-r from-blue-50 to-pink-50"
-    >
-      <div class="max-w-6xl mx-auto px-6 text-center">
-        <h2 class="text-4xl md:text-5xl font-extrabold">
-          High-Quality Embroidery Digitizing Services
-        </h2>
-        <p class="mt-4 text-lg text-gray-700">
-          Fast delivery • International clients • Premium stitch quality
-        </p>
+    <section id="home" class="pt-28 pb-16">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="relative">
+          <h1 data-aos="fade-up" data-aos-duration="700" class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight" style="font-family: 'Playfair Display', serif">
+            We Turn Art Into Flawless Embroidery
+          </h1>
+          <p data-aos="fade-up" data-aos-delay="120" class="mt-4 text-lg text-gray-700">Fast delivery • Global clients • Clean stitches • Machine-ready files</p>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a data-aos="zoom-in" data-aos-delay="220" href="#contact" class="gradient-btn">Get a Quote</a>
+            <a data-aos="zoom-in" data-aos-delay="260" href="#gallery" class="px-5 py-3 rounded-lg border shadow-sm bg-white/90 text-gray-800">View Gallery</a>
+          </div>
+
+          <div class="mt-6 flex items-center gap-3">
+            <span class="chip">24/7 Support</span>
+            <span class="chip">Fast Turnaround</span>
+            <span class="chip">Multiple Formats</span>
+          </div>
+
+          <svg data-aos="fade-left" class="hero-blob" width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <g opacity="0.9">
+              <path d="M85 10C125 -10 200 -8 240 22C280 52 300 120 270 170C240 220 160 260 100 250C40 240 20 80 85 10Z" fill="#a78bfa" />
+            </g>
+          </svg>
+        </div>
+
+        <div data-aos="fade-left" class="relative hidden md:block">
+          <img src="src/images/img8.jpg" alt="Embroidery sample" class="rounded-xl shadow-xl w-full object-cover h-80">
+         
+        </div>
       </div>
     </section>
 
     <!-- GALLERY - Center-focus peek slider (transparent background, constrained size) -->
-    <!-- GALLERY SECTION -->
-    <section id="gallery" class="max-w-7xl mx-auto px-6 py-16">
+    <section id="gallery" class="max-w-7xl mx-auto px-6 py-10">
       <h2 class="text-4xl font-bold text-center mb-10">Gallery</h2>
+      <!-- gallery controls removed per request -->
 
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
-      >
-        <img
-          src="src/images/img1.jpg"
-          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
-        />
-        <img
-          src="src/images/img2.jpg"
-          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
-        />
-        <img
-          src="src/images/img3.jpg"
-          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
-        />
-        <img
-          src="src/images/img4.jpg"
-          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
-        />
-        <img
-          src="src/images/img5.jpg"
-          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
-        />
+      <div class="gallery-grid">
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="40" data-tags="caps puff">
+          <img src="src/images/img1.jpg" data-full="src/images/img1.jpg" data-caption="Custom 3D Puff Cap" alt="3D puff cap sample" loading="lazy" class="gallery-thumb rounded-lg shadow-md" />
+          <div class="overlay"><div class="overlay-inner"><div class="title">3D Puff Cap</div><button class="view-btn" aria-label="View image">🔍</button></div></div>
+        </div>
 
-        <img
-          src="src/images/img6.jpg"
-          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
-        />
-        <img
-          src="src/images/img7.jpg"
-          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
-        />
-        <img
-          src="src/images/img8.jpg"
-          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
-        />
-        <img
-          src="src/images/img9.jpg"
-          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
-        />
-        <img
-          src="src/images/img10.jpg"
-          class="gallery-img w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
-        />
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="80" data-tags="logos">
+          <img src="src/images/img2.jpg" data-full="src/images/img2.jpg" data-caption="Logo embroidery sample" alt="Logo sample" loading="lazy" class="gallery-thumb rounded-lg shadow-md" />
+          <div class="overlay"><div class="overlay-inner"><div class="title">Logo</div><button class="view-btn" aria-label="View image">🔍</button></div></div>
+        </div>
+
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="120" data-tags="logos">
+          <img src="src/images/img3.jpg" data-full="src/images/img3.jpg" data-caption="Embroidered patch" alt="Patch sample" loading="lazy" class="gallery-thumb rounded-lg shadow-md" />
+          <div class="overlay"><div class="overlay-inner"><div class="title">Patch</div><button class="view-btn" aria-label="View image">🔍</button></div></div>
+        </div>
+
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="160" data-tags="logos">
+          <img src="src/images/img4.jpg" data-full="src/images/img4.jpg" data-caption="Shirt embroidery" alt="Shirt sample" loading="lazy" class="gallery-thumb rounded-lg shadow-md" />
+          <div class="overlay"><div class="overlay-inner"><div class="title">Shirt</div><button class="view-btn" aria-label="View image">🔍</button></div></div>
+        </div>
+
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" data-tags="logos">
+          <img src="src/images/img5.jpg" data-full="src/images/img5.jpg" data-caption="Corporate logo" alt="Corporate logo sample" loading="lazy" class="gallery-thumb rounded-lg shadow-md" />
+          <div class="overlay"><div class="overlay-inner"><div class="title">Corporate</div><button class="view-btn" aria-label="View image">🔍</button></div></div>
+        </div>
+
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="240" data-tags="puff">
+          <img src="src/images/img6.jpg" data-full="src/images/img6.jpg" data-caption="Cap close-up" alt="Cap close-up" loading="lazy" class="gallery-thumb rounded-lg shadow-md" />
+          <div class="overlay"><div class="overlay-inner"><div class="title">Cap Close-up</div><button class="view-btn" aria-label="View image">🔍</button></div></div>
+        </div>
+
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="280" data-tags="logos">
+          <img src="src/images/img7.jpg" data-full="src/images/img7.jpg" data-caption="Badge sample" alt="Badge sample" loading="lazy" class="gallery-thumb rounded-lg shadow-md" />
+          <div class="overlay"><div class="overlay-inner"><div class="title">Badge</div><button class="view-btn" aria-label="View image">🔍</button></div></div>
+        </div>
+
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="320" data-tags="logos">
+          <img src="src/images/img8.jpg" data-full="src/images/img8.jpg" data-caption="Embroidery close-up" alt="Close-up sample" loading="lazy" class="gallery-thumb rounded-lg shadow-md" />
+          <div class="overlay"><div class="overlay-inner"><div class="title">Close-up</div><button class="view-btn" aria-label="View image">🔍</button></div></div>
+        </div>
+
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="360" data-tags="logos">
+          <img src="src/images/img9.jpg" data-full="src/images/img9.jpg" data-caption="Jacket embroidery" alt="Jacket sample" loading="lazy" class="gallery-thumb rounded-lg shadow-md" />
+          <div class="overlay"><div class="overlay-inner"><div class="title">Jacket</div><button class="view-btn" aria-label="View image">🔍</button></div></div>
+        </div>
+
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400" data-tags="logos">
+          <img src="src/images/img10.jpg" data-full="src/images/img10.jpg" data-caption="Finished product" alt="Finished product" loading="lazy" class="gallery-thumb rounded-lg shadow-md" />
+          <div class="overlay"><div class="overlay-inner"><div class="title">Finished</div><button class="view-btn" aria-label="View image">🔍</button></div></div>
+        </div>
       </div>
     </section>
 
     <!-- POPUP VIEWER -->
-    <div
-      id="imageModal"
-      class="fixed inset-0 hidden flex items-center justify-center backdrop-blur-sm bg-transparent z-50"
-    >
+    <div id="imageModal" class="fixed inset-0 items-center justify-center z-50" style="display:none;">
       <!-- Wrapper for image + buttons -->
-      <!-- Wrapper for image + buttons -->
-      <div class="relative inline-block">
+      <div class="relative flex items-center justify-center">
         <!-- Image -->
-        <img
-          id="modalImg"
-          class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg transition-transform duration-300"
-        />
+        <img id="modalImg" class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg transition-transform duration-300" />
+
+        <div id="modalCaption" class="mt-3 text-center text-white/90"></div>
+        <div class="mt-2 text-center">
+          <a id="modalDownload" class="inline-block text-sm text-white/90 bg-black/30 px-3 py-1 rounded-md hover:bg-black/45" download>Download</a>
+        </div>
 
         <!-- Button Row (right side) -->
-        <div
-          class="absolute top-4 right-4 md:-right-20 flex gap-3 md:flex-row flex-col md:flex-col"
-        >
-          <button
-            id="zoomInBtn"
-            class="bg-white text-black w-10 h-10 rounded-full shadow-lg text-2xl flex items-center justify-center font-bold"
-          >
-            +
-          </button>
-
-          <button
-            id="zoomOutBtn"
-            class="bg-white text-black w-10 h-10 rounded-full shadow-lg text-2xl flex items-center justify-center font-bold"
-          >
-            −
-          </button>
-
-          <button
-            id="closeBtn"
-            class="bg-white text-black w-10 h-10 rounded-full shadow-lg text-3xl flex items-center justify-center font-bold"
-          >
-            ×
-          </button>
+        <div id="modalControls" class="absolute top-4 right-4 md:flex gap-3 hidden">
+          <button id="zoomInBtn" class="w-10 h-10 rounded-full bg-white/90 shadow-lg text-xl flex items-center justify-center">+</button>
+          <button id="zoomOutBtn" class="w-10 h-10 rounded-full bg-white/90 shadow-lg text-xl flex items-center justify-center">−</button>
+          <button id="closeBtn" class="w-10 h-10 rounded-full bg-white/90 shadow-lg text-xl flex items-center justify-center">×</button>
         </div>
       </div>
     </div>
 
     <style>
-      #imageModal {
-        background: rgba(255, 255, 255, 0); /* fully transparent */
-      }
-
-      #modalImg {
-        transform: scale(1);
-      }
-
-      #closeBtn,
-      #zoomInBtn,
-      #zoomOutBtn {
-        color: black; /* change to white if your background is dark */
-        background: rgba(255, 255, 255, 0.8);
-        padding: 4px 10px;
-        border-radius: 6px;
-        backdrop-filter: blur(5px);
-      }
-
-      #closeBtn:hover,
-      #zoomInBtn:hover,
-      #zoomOutBtn:hover {
-        background: rgba(255, 255, 255, 1);
-      }
+      /* small inline helpers kept here to avoid editing build pipeline */
+      #mobileMenu a { color: #2b2b2b; }
     </style>
 
     <!-- Services Section -->
-    <section id="services" class="bg-gray-50 py-16">
+    <section id="services" class="py-12">
       <div class="max-w-6xl mx-auto px-6">
         <h3 class="text-3xl font-bold text-center mb-10">Our Services</h3>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Service 1 -->
-          <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition border"
-          >
-            <h4 class="text-xl font-semibold mb-3">Embroidery Digitizing</h4>
-            <p class="text-gray-700">
-              We convert your artwork into high-quality embroidery-ready files
-              with clean stitches and excellent precision.
-            </p>
+          <div data-aos="fade-up" data-aos-delay="80" class="p-6 rounded-xl shadow-lg glass-card service-card">
+            <div class="flex items-center gap-4">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7"/></svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold mb-1">Embroidery Digitizing</h4>
+                <p class="text-gray-700">We convert artwork into machine-ready files with clean stitches and tight control.</p>
+              </div>
+            </div>
           </div>
 
-          <!-- Service 2 -->
-          <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition border"
-          >
-            <h4 class="text-xl font-semibold mb-3">Logo Digitizing</h4>
-            <p class="text-gray-700">
-              Perfect for caps, T-shirts, jackets, patches, uniforms, and brand
-              merchandise.
-            </p>
+          <div data-aos="fade-up" data-aos-delay="140" class="p-6 rounded-xl shadow-lg glass-card service-card">
+            <div class="flex items-center gap-4">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6l4 2"/></svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold mb-1">Logo Digitizing</h4>
+                <p class="text-gray-700">Optimized for caps, garments, patches and large-scale production.</p>
+              </div>
+            </div>
           </div>
 
-          <!-- Service 3 -->
-          <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition border"
-          >
-            <h4 class="text-xl font-semibold mb-3">3D Puff Digitizing</h4>
-            <p class="text-gray-700">
-              Designs prepared specifically for 3D foam embroidery with proper
-              capping and padding.
-            </p>
+          <div data-aos="fade-up" data-aos-delay="200" class="p-6 rounded-xl shadow-lg glass-card service-card">
+            <div class="flex items-center gap-4">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3l2 2"/></svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold mb-1">3D Puff Digitizing</h4>
+                <p class="text-gray-700">Raised embroidery with proper capping and padding for a bold look.</p>
+              </div>
+            </div>
           </div>
 
           <!-- Service 4 -->
-          <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition border"
-          >
-            <h4 class="text-xl font-semibold mb-3">Custom Patch Designs</h4>
-            <p class="text-gray-700">
-              Personalized patch digitizing for bikers, clubs, military units,
-              events, and more.
-            </p>
+          <div data-aos="fade-up" data-aos-delay="260" class="p-6 rounded-xl shadow-lg glass-card service-card">
+            <div class="flex items-center gap-4">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 10l5 5 5-5"/></svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold mb-1">Custom Patch Designs</h4>
+                <p class="text-gray-700">Personalized patch digitizing for bikers, clubs, military units, events, and more.</p>
+              </div>
+            </div>
           </div>
 
           <!-- Service 5 -->
-          <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition border"
-          >
-            <h4 class="text-xl font-semibold mb-3">Appliqué Digitizing</h4>
-            <p class="text-gray-700">
-              Digitizing designs that use fabric pieces, reducing stitch count
-              and production time.
-            </p>
+          <div data-aos="fade-up" data-aos-delay="320" class="p-6 rounded-xl shadow-lg glass-card service-card">
+            <div class="flex items-center gap-4">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7l6 6m0 0l6-6M9 13V3"/></svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold mb-1">Appliqué Digitizing</h4>
+                <p class="text-gray-700">Digitizing designs that use fabric pieces, reducing stitch count and production time.</p>
+              </div>
+            </div>
           </div>
 
           <!-- Service 6 -->
-          <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition border"
-          >
-            <h4 class="text-xl font-semibold mb-3">Multi-Format Output</h4>
-            <p class="text-gray-700">
-              Receive files in EMB, DST, PES, EXP and other machine-compatible
-              formats.
-            </p>
+          <div data-aos="fade-up" data-aos-delay="380" class="p-6 rounded-xl shadow-lg glass-card service-card">
+            <div class="flex items-center gap-4">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold mb-1">Multi-Format Output</h4>
+                <p class="text-gray-700">Receive files in EMB, DST, PES, EXP and other machine-compatible formats.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+      </div>
+    </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="py-16 bg-white">
+    <section id="pricing" class="py-10 bg-white">
       <div class="max-w-6xl mx-auto px-6">
-        <h3 class="text-3xl font-bold text-center mb-10">Pricing</h3>
+        <h2 class="text-3xl font-bold text-center mb-10">Pricing</h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <!-- Table 1 -->
-          <div class="border shadow-lg rounded-xl overflow-hidden">
-            <h4 class="text-xl font-semibold bg-gray-100 px-6 py-4 border-b">
-              Digitizing Pricing
-            </h4>
+        <div class="pricing-grid">
+          <div data-aos="fade-up" class="pricing-card relative">
+            <div class="pricing-header">
+              <div>
+                <h4 class="text-xl font-semibold">Digitizing Pricing</h4>
+                <div class="price-sub">Standard turnaround • 24 hrs</div>
+              </div>
+              
+            </div>
 
-            <table class="w-full text-left border-collapse">
-              <thead>
-                <tr class="bg-gray-50 border-b">
-                  <th class="p-3 font-medium">Design Type</th>
-                  <th class="p-3 font-medium">Price (USD)</th>
-                </tr>
-              </thead>
+            <div class="price-figure">$1 <span style="font-size:.9rem;font-weight:600;">/ 2000 stitches</span></div>
 
-              <tbody>
-                <tr class="border-b">
-                  <td class="p-3">Normal service (24 hrs)</td>
-                  <td class="p-3">$1 per 2000 Stitches</td>
-                </tr>
+            <div class="features">
+              <div class="feature"><div class="dot"></div><div>Optimized stitch paths</div></div>
+              <div class="feature"><div class="dot"></div><div>Tested on major machines</div></div>
+              <div class="feature"><div class="dot"></div><div>Multiple formats: EMB, DST, PES</div></div>
+            </div>
 
-                <tr class="border-b">
-                  <td class="p-3">Same day (12 hrs)</td>
-                  <td class="p-3">As per design</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="pricing-cta">
+              <a href="#contact" class="gradient-btn">Request This Service</a>
+            </div>
           </div>
 
-          <!-- Table 2 -->
-          <div class="border shadow-lg rounded-xl overflow-hidden">
-            <h4 class="text-xl font-semibold bg-gray-100 px-6 py-4 border-b">
-              Editing Pricing
-            </h4>
+          <div data-aos="fade-up" data-aos-delay="80" class="pricing-card relative">
+            <div class="ribbon">Popular</div>
+            <div class="pricing-header">
+              <div>
+                <h4 class="text-xl font-semibold">Editing Pricing</h4>
+                <div class="price-sub">Quick edits & resizing</div>
+              </div>
+              <div class="price-badge">Variable</div>
+            </div>
 
-            <table class="w-full text-left border-collapse">
-              <thead>
-                <tr class="bg-gray-50 border-b">
-                  <th class="p-3 font-medium">Editing Category</th>
-                  <th class="p-3 font-medium">Price (USD)</th>
-                </tr>
-              </thead>
+            <div class="price-figure">Free <span style="font-size:.9rem;font-weight:600;">(small edits)</span></div>
 
-              <tbody>
-                <tr class="border-b">
-                  <td class="p-3">Down/Up size less than 30%</td>
-                  <td class="p-3">Free</td>
-                </tr>
+            <div class="features">
+              <div class="feature"><div class="dot"></div><div>Down/Up size &lt; 30% - Free</div></div>
+              <div class="feature"><div class="dot"></div><div>Size &gt; 30% - Fee applicable</div></div>
+              <div class="feature"><div class="dot"></div><div>Format conversions available</div></div>
+            </div>
 
-                <tr class="border-b">
-                  <td class="p-3">Down/Up size more than 30%</td>
-                  <td class="p-3">Fee Applicable</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="pricing-cta">
+              <a href="#contact" class="gradient-btn">Request Edit</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-20 bg-gray-50">
-      <h2 class="text-4xl font-bold text-center mb-10">
-        Frequently Asked Questions
-      </h2>
+    <section id="faq" class="py-12 bg-gray-50">
+      <h2 class="text-4xl font-bold text-center mb-6">Frequently Asked Questions</h2>
 
-      <div class="max-w-3xl mx-auto space-y-6">
-        <details
-          class="p-6 border rounded-xl shadow-sm cursor-pointer bg-white"
-        >
-          <summary class="text-xl font-semibold">
-            What services do you offer?
-          </summary>
-          <p class="mt-3 text-gray-600">
-            We offer a wide range of web development services including frontend
-            development, backend development, UI/UX design, API integration,
-            cloud deployment, and ongoing maintenance.
-          </p>
+      <div class="faq-search mb-8 px-6">
+        <input id="faqSearch" placeholder="Search questions..." aria-label="Search FAQ" />
+      </div>
+
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-6">
+        <details data-aos="fade-up" data-aos-delay="40" class="faq-item p-6 border rounded-xl bg-white">
+          <summary class="text-xl font-semibold">What's your turnaround time?</summary>
+          <div class="faq-body mt-3 text-gray-600">
+            <p>Our standard turnaround time is 4–12 hours when there is no urgency. For urgent requests we can deliver within 1–4 hours depending on complexity.</p>
+          </div>
         </details>
 
-        <details
-          class="p-6 border rounded-xl shadow-sm cursor-pointer bg-white"
-        >
-          <summary class="text-xl font-semibold">
-            How long does a project usually take?
-          </summary>
-          <p class="mt-3 text-gray-600">
-            Project timelines vary depending on complexity, but most projects
-            take between 2 to 8 weeks.
-          </p>
+        <details data-aos="fade-up" data-aos-delay="100" class="faq-item p-6 border rounded-xl bg-white">
+          <summary class="text-xl font-semibold">What will be the format of the logo?</summary>
+          <div class="faq-body mt-3 text-gray-600">
+            <p>We can deliver in any format you require (EMB, DST, PES, EXP, PNG, JPG, PDF, AI, etc.). Tell us your machine/model and desired format and we'll provide the correct file.</p>
+          </div>
         </details>
 
-        <details
-          class="p-6 border rounded-xl shadow-sm cursor-pointer bg-white"
-        >
-          <summary class="text-xl font-semibold">
-            Do you offer ongoing support after the project is completed?
-          </summary>
-          <p class="mt-3 text-gray-600">
-            Yes, we provide ongoing support, maintenance, and feature updates
-            based on your needs.
-          </p>
+        <details data-aos="fade-up" data-aos-delay="160" class="faq-item p-6 border rounded-xl bg-white">
+          <summary class="text-xl font-semibold">How will I get my file?</summary>
+          <div class="faq-body mt-3 text-gray-600">
+            <p>Files are delivered via email. If you prefer a file-sharing link or another channel, let us know and we'll accommodate.</p>
+          </div>
         </details>
 
-        <details
-          class="p-6 border rounded-xl shadow-sm cursor-pointer bg-white"
-        >
-          <summary class="text-xl font-semibold">How do payments work?</summary>
-          <p class="mt-3 text-gray-600">
-            Payments are structured in milestones—an upfront amount, mid-project
-            payment, and final payment after completion.
-          </p>
+        <details data-aos="fade-up" data-aos-delay="220" class="faq-item p-6 border rounded-xl bg-white">
+          <summary class="text-xl font-semibold">What payment method do you use?</summary>
+          <div class="faq-body mt-3 text-gray-600">
+            <p>Contact us via email for payment details. We provide invoices digitally before payment.</p>
+          </div>
         </details>
 
-        <details
-          class="p-6 border rounded-xl shadow-sm cursor-pointer bg-white"
-        >
-          <summary class="text-xl font-semibold">
-            Can you redesign my existing website?
-          </summary>
-          <p class="mt-3 text-gray-600">
-            Absolutely! We can modernize, optimize, and improve both design and
-            performance of your current website.
-          </p>
+        <details data-aos="fade-up" data-aos-delay="280" class="faq-item p-6 border rounded-xl bg-white">
+          <summary class="text-xl font-semibold">What's 3D (puff) embroidery vs regular embroidery?</summary>
+          <div class="faq-body mt-3 text-gray-600">
+            <p>3D or puff embroidery uses foam under the stitches to create a raised, three-dimensional effect — commonly used on caps. Regular embroidery is flatter and suitable for most garments.</p>
+          </div>
+        </details>
+
+        <details data-aos="fade-up" data-aos-delay="340" class="faq-item p-6 border rounded-xl bg-white">
+          <summary class="text-xl font-semibold">How can I place the order?</summary>
+          <div class="faq-body mt-3 text-gray-600">
+            <p>Send your artwork and instructions to <a href="mailto:unidigitizing2525@gmail.com" class="text-blue-600 hover:underline">unidigitizing2525@gmail.com</a>. Include size, placement, formats, and turnaround preference.</p>
+          </div>
+        </details>
+
+        <details data-aos="fade-up" data-aos-delay="400" class="faq-item p-6 border rounded-xl bg-white">
+          <summary class="text-xl font-semibold">What digitizing software do you use?</summary>
+          <div class="faq-body mt-3 text-gray-600">
+            <p>We use industry-standard tools such as Wilcom to ensure machine-ready files.</p>
+          </div>
+        </details>
+
+        <details data-aos="fade-up" data-aos-delay="460" class="faq-item p-6 border rounded-xl bg-white">
+          <summary class="text-xl font-semibold">What file formats are supported?</summary>
+          <div class="faq-body mt-3 text-gray-600">
+            <p>Common formats include .png, .jpg, .cdr, .pdf, .ai, and machine formats like .dst, .pes, .emb.</p>
+          </div>
+        </details>
+
+        <details data-aos="fade-up" data-aos-delay="520" class="faq-item p-6 border rounded-xl bg-white">
+          <summary class="text-xl font-semibold">How can I convey instructions to the designer?</summary>
+          <div class="faq-body mt-3 text-gray-600">
+            <p>Please include any of the following when you send artwork:</p>
+            <ul class="mt-3 text-gray-600 ml-5 list-disc space-y-1">
+              <li>Design size: cm, inches, or mm</li>
+              <li>Placement: cap, left chest, full back, beanie, etc.</li>
+              <li>Garment type: towel, blanket, t-shirt, pique knit, fleece, etc.</li>
+              <li>Desired output file(s): .emb, .pof, .dst, .pdf, etc.</li>
+              <li>Turnaround time: standard (24 hrs) or rush (12 hrs or less)</li>
+            </ul>
+          </div>
         </details>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-      <h2 class="text-4xl font-bold text-center mb-10">Contact Us</h2>
+<!-- Contact Section -->
+<!-- Contact + Payment (side-by-side on md+) -->
+<section id="contact-payment" class="py-10 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-8">Contact & Payment</h2>
 
-      <div class="max-w-3xl mx-auto space-y-6">
-        <!-- Contact Details -->
-        <div class="space-y-3">
-          <p class="text-lg">
-            <span class="font-semibold">Email:</span>
-            unidigitizing2525@gmail.com
-          </p>
-          <p class="text-lg">
-            <span class="font-semibold">Location:</span> Available Worldwide
-          </p>
-          <p class="text-lg">
-            <span class="font-semibold">Business Hours:</span> 24/7
-          </p>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div id="contact" data-aos="fade-up" data-aos-delay="80" class="p-6 border rounded-xl shadow-sm bg-white text-center h-full flex flex-col justify-between">
+        <h3 class="text-2xl font-semibold mb-3">Contact Us</h3>
+        <p class="text-lg mb-2">
+          <span class="font-semibold">Email:</span>
+          <a href="mailto:unidigitizing2525@gmail.com" class="text-blue-600 hover:text-blue-700 hover:underline">unidigitizing2525@gmail.com</a>
+        </p>
+        <p class="text-lg mb-2"><span class="font-semibold">Location:</span> Available Worldwide</p>
+        <p class="text-lg"><span class="font-semibold">Business Hours:</span> 24/7</p>
       </div>
-    </section>
 
-    <!-- Payment Section -->
-    <section id="payment" class="py-20 bg-gray-50">
-      <h2 class="text-4xl font-bold text-center mb-10">Payment Details</h2>
-
-      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-        <!-- International Clients -->
-        <div class="p-6 border rounded-xl shadow-sm bg-white">
-          <h3 class="text-2xl font-semibold mb-3">For payment, contact us</h3>
-          <ul class="text-gray-600 ml-5 list-disc">
-            <li>unidigitizing2525@gmail.com</li>
-          </ul>
-          <p class="mt-3 text-gray-600">
-            Invoices will be shared digitally before payment.
-          </p>
-        </div>
+      <div id="payment" data-aos="fade-up" data-aos-delay="140" class="p-6 border rounded-xl shadow-sm bg-white text-center h-full flex flex-col justify-between">
+        <h3 class="text-2xl font-semibold mb-3">Payment Details</h3>
+        <p class="mb-3 text-gray-700">For payments, contact us via email and we'll share an invoice and payment options.</p>
+        <a href="mailto:unidigitizing2525@gmail.com" class="inline-block gradient-btn">Email for Payment</a>
+        <p class="mt-4 text-gray-600">Invoices will be shared digitally before payment.</p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 py-6">
@@ -413,39 +428,124 @@
       </p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
-      const modal = document.getElementById("imageModal");
-      const modalImg = document.getElementById("modalImg");
-      const zoomInBtn = document.getElementById("zoomInBtn");
-      const zoomOutBtn = document.getElementById("zoomOutBtn");
-      const closeBtn = document.getElementById("closeBtn");
+      // Mobile menu toggle
+      const mobileBtn = document.getElementById('mobileBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          const expanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+          mobileBtn.setAttribute('aria-expanded', String(!expanded));
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      // Modal / Gallery interactions
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      const modalCaption = document.getElementById('modalCaption');
+      const modalDownload = document.getElementById('modalDownload');
+      const zoomInBtn = document.getElementById('zoomInBtn');
+      const zoomOutBtn = document.getElementById('zoomOutBtn');
+      const closeBtn = document.getElementById('closeBtn');
+      const modalControls = document.getElementById('modalControls');
 
       let scale = 1;
 
-      document.querySelectorAll(".gallery-img").forEach((img) => {
-        img.addEventListener("click", () => {
-          modal.classList.remove("hidden");
-          modalImg.src = img.src;
+      // Open thumbnails (uses data-full for full-res and data-caption for caption)
+      document.querySelectorAll('.gallery-thumb').forEach((img) => {
+        img.addEventListener('click', (e) => {
+          const full = img.dataset.full || img.src;
+          const caption = img.dataset.caption || img.alt || '';
+          // ensure modal becomes visible and centered
+          modal.style.display = 'flex';
+          modalImg.src = full;
+          if (modalCaption) modalCaption.textContent = caption;
+          if (modalDownload) modalDownload.href = full;
           scale = 1;
-          modalImg.style.transform = "scale(1)";
+          modalImg.style.transform = 'scale(1)';
+          if (modalControls) modalControls.classList.remove('hidden');
         });
       });
 
-      zoomInBtn.addEventListener("click", () => {
-        scale += 0.1;
-        modalImg.style.transform = `scale(${scale})`;
-      });
-
-      zoomOutBtn.addEventListener("click", () => {
-        if (scale > 0.2) {
-          scale -= 0.1;
+      if (zoomInBtn) {
+        zoomInBtn.addEventListener('click', () => {
+          scale = Math.min(3, +(scale + 0.15).toFixed(2));
           modalImg.style.transform = `scale(${scale})`;
-        }
+        });
+      }
+
+      if (zoomOutBtn) {
+        zoomOutBtn.addEventListener('click', () => {
+          scale = Math.max(0.2, +(scale - 0.15).toFixed(2));
+          modalImg.style.transform = `scale(${scale})`;
+        });
+      }
+
+      const closeModal = () => {
+        // hide via inline style to ensure it appears above everything when open
+        modal.style.display = 'none';
+        if (modalControls) modalControls.classList.add('hidden');
+      };
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+      // Close when clicking outside the image
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
       });
 
-      closeBtn.addEventListener("click", () => {
-        modal.classList.add("hidden");
+      // Close on ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
       });
+
+      // Gallery filters removed (no categorization)
+
+      // FAQ search & smooth accordion
+      const faqSearch = document.getElementById('faqSearch');
+      const faqItems = Array.from(document.querySelectorAll('.faq-item'));
+
+      // Initialize FAQ bodies max-height
+      faqItems.forEach(item => {
+        const body = item.querySelector('.faq-body');
+        if (body) {
+          body.style.maxHeight = item.open ? body.scrollHeight + 'px' : '0px';
+        }
+        // sync maxHeight when toggled
+        item.addEventListener('toggle', () => {
+          const b = item.querySelector('.faq-body');
+          if (!b) return;
+          if (item.open) {
+            b.style.maxHeight = b.scrollHeight + 'px';
+          } else {
+            b.style.maxHeight = '0px';
+          }
+        });
+      });
+
+      if (faqSearch) {
+        faqSearch.addEventListener('input', (e) => {
+          const q = e.target.value.toLowerCase().trim();
+          faqItems.forEach(item => {
+            const summary = item.querySelector('summary')?.textContent?.toLowerCase() || '';
+            const body = item.querySelector('.faq-body')?.textContent?.toLowerCase() || '';
+            const matches = q === '' || summary.includes(q) || body.includes(q);
+            item.style.display = matches ? '' : 'none';
+          });
+        });
+      }
+
+      // Initialize AOS (Animate On Scroll)
+      try {
+        if (window.AOS) {
+          AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+        }
+      } catch (err) {
+        console.warn('AOS init failed', err);
+      }
     </script>
   </body>
 </html>
