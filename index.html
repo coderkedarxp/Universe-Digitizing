@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <!-- AOS (Animate On Scroll) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Content Security Policy (conservative) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none';">
   </head>
   <body class="bg-white text-gray-800">
     <!-- Navbar -->
@@ -75,11 +77,7 @@
             <span class="chip">Multiple Formats</span>
           </div>
 
-          <svg data-aos="fade-left" class="hero-blob" width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-            <g opacity="0.9">
-              <path d="M85 10C125 -10 200 -8 240 22C280 52 300 120 270 170C240 220 160 260 100 250C40 240 20 80 85 10Z" fill="#a78bfa" />
-            </g>
-          </svg>
+          <!-- hero blob removed per user request -->
         </div>
 
         <div data-aos="fade-left" class="relative hidden md:block">
@@ -429,6 +427,7 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" crossorigin="anonymous"></script>
 
     <script>
       // Mobile menu toggle
@@ -454,6 +453,19 @@
 
       let scale = 1;
 
+      // Safe URL sanitizer to avoid javascript: or other unsafe schemes
+      function safeUrl(raw) {
+        if (!raw || typeof raw !== 'string') return '';
+        try {
+          // Allow relative and absolute http/https URLs
+          const u = new URL(raw, location.href);
+          if (u.protocol === 'http:' || u.protocol === 'https:' || u.protocol === 'data:') return u.href;
+        } catch (e) {
+          return '';
+        }
+        return '';
+      }
+
       // Open thumbnails (uses data-full for full-res and data-caption for caption)
       document.querySelectorAll('.gallery-thumb').forEach((img) => {
         img.addEventListener('click', (e) => {
@@ -461,9 +473,9 @@
           const caption = img.dataset.caption || img.alt || '';
           // ensure modal becomes visible and centered
           modal.style.display = 'flex';
-          modalImg.src = full;
+          modalImg.src = safeUrl(full) || '';
           if (modalCaption) modalCaption.textContent = caption;
-          if (modalDownload) modalDownload.href = full;
+          if (modalDownload) modalDownload.href = safeUrl(full) || '';
           scale = 1;
           modalImg.style.transform = 'scale(1)';
           if (modalControls) modalControls.classList.remove('hidden');
