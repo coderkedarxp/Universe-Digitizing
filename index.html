@@ -169,6 +169,33 @@
     <style>
       /* small inline helpers kept here to avoid editing build pipeline */
       #mobileMenu a { color: #2b2b2b; }
+
+      /* FAQ overlay: keep the answer out of document flow so siblings don't resize
+         Answers render as a positioned panel on wider screens; on small screens
+         they fall back to normal flow for accessibility and predictable stacking. */
+      .faq-col { display: flex; flex-direction: column; gap: 1rem; }
+      .faq-item { position: relative; }
+      .faq-item summary { cursor: pointer; }
+      .faq-item .faq-body {
+        /* keep answer in-flow so it only affects its own column */
+        position: static;
+        background: transparent;
+        border-radius: 0.375rem;
+        box-shadow: none;
+        padding: 0;
+        margin-top: 0.75rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 280ms ease;
+      }
+      /* When an item is open we expand the body (JS sets maxHeight inline) */
+      @media (max-width: 768px) {
+        .faq-item .faq-body {
+          max-height: none !important;
+          overflow: visible;
+          margin-top: 0.5rem;
+        }
+      }
     </style>
 
     <!-- Services Section -->
@@ -344,80 +371,79 @@
     <section id="faq" class="py-12 bg-gray-50">
       <h2 class="text-4xl font-bold text-center mb-6">Frequently Asked Questions</h2>
 
-      <div class="faq-search mb-8 px-6">
-        <input id="faqSearch" placeholder="Search questions..." aria-label="Search FAQ" />
-      </div>
+      <!-- FAQ search removed per request -->
 
-      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-6">
-        <details data-aos="fade-up" data-aos-delay="40" class="faq-item p-6 border rounded-xl bg-white">
-          <summary class="text-xl font-semibold">What's your turnaround time?</summary>
-          <div class="faq-body mt-3 text-gray-600">
-            <p>Our standard turnaround time is 4–12 hours when there is no urgency. For urgent requests we can deliver within 1–4 hours depending on complexity.</p>
-          </div>
-        </details>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="faq-col space-y-4">
+            <details data-aos="fade-up" data-aos-delay="40" class="faq-item p-6 border rounded-xl bg-white">
+              <summary class="text-xl font-semibold">What's your turnaround time?</summary>
+              <div class="faq-body mt-3 text-gray-600">
+                <p>Our standard turnaround time is 4–12 hours when there is no urgency. For urgent requests we can deliver within 1–4 hours depending on complexity.</p>
+              </div>
+            </details>
 
-        <details data-aos="fade-up" data-aos-delay="100" class="faq-item p-6 border rounded-xl bg-white">
-          <summary class="text-xl font-semibold">What will be the format of the logo?</summary>
-          <div class="faq-body mt-3 text-gray-600">
-            <p>We can deliver in any format you require (EMB, DST, PES, EXP, PNG, JPG, PDF, AI, etc.). Tell us your machine/model and desired format and we'll provide the correct file.</p>
-          </div>
-        </details>
+            <details data-aos="fade-up" data-aos-delay="100" class="faq-item p-6 border rounded-xl bg-white">
+              <summary class="text-xl font-semibold">What will be the format of the logo?</summary>
+              <div class="faq-body mt-3 text-gray-600">
+                <p>We can deliver in any format you require (EMB, DST, PES, EXP, PNG, JPG, PDF, AI, etc.). Tell us your machine/model and desired format and we'll provide the correct file.</p>
+              </div>
+            </details>
 
-        <details data-aos="fade-up" data-aos-delay="160" class="faq-item p-6 border rounded-xl bg-white">
-          <summary class="text-xl font-semibold">How will I get my file?</summary>
-          <div class="faq-body mt-3 text-gray-600">
-            <p>Files are delivered via email. If you prefer a file-sharing link or another channel, let us know and we'll accommodate.</p>
-          </div>
-        </details>
+            <!-- 'How will I get my file?' FAQ removed per request -->
 
-        <details data-aos="fade-up" data-aos-delay="220" class="faq-item p-6 border rounded-xl bg-white">
-          <summary class="text-xl font-semibold">What payment method do you use?</summary>
-          <div class="faq-body mt-3 text-gray-600">
-            <p>Contact us via email for payment details. We provide invoices digitally before payment.</p>
-          </div>
-        </details>
+            <details data-aos="fade-up" data-aos-delay="220" class="faq-item p-6 border rounded-xl bg-white">
+              <summary class="text-xl font-semibold">What payment method do you use?</summary>
+              <div class="faq-body mt-3 text-gray-600">
+                <p>Contact us via email for payment details. We provide invoices digitally before payment.</p>
+              </div>
+            </details>
 
-        <details data-aos="fade-up" data-aos-delay="280" class="faq-item p-6 border rounded-xl bg-white">
-          <summary class="text-xl font-semibold">What's 3D (puff) embroidery vs regular embroidery?</summary>
-          <div class="faq-body mt-3 text-gray-600">
-            <p>3D or puff embroidery uses foam under the stitches to create a raised, three-dimensional effect — commonly used on caps. Regular embroidery is flatter and suitable for most garments.</p>
+            <details data-aos="fade-up" data-aos-delay="280" class="faq-item p-6 border rounded-xl bg-white">
+              <summary class="text-xl font-semibold">What's 3D (puff) embroidery vs regular embroidery?</summary>
+              <div class="faq-body mt-3 text-gray-600">
+                <p>3D or puff embroidery uses foam under the stitches to create a raised, three-dimensional effect — commonly used on caps. Regular embroidery is flatter and suitable for most garments.</p>
+              </div>
+            </details>
           </div>
-        </details>
 
-        <details data-aos="fade-up" data-aos-delay="340" class="faq-item p-6 border rounded-xl bg-white">
-          <summary class="text-xl font-semibold">How can I place the order?</summary>
-          <div class="faq-body mt-3 text-gray-600">
-            <p>Send your artwork and instructions to <a href="mailto:unidigitizing2525@gmail.com" class="text-blue-600 hover:underline">unidigitizing2525@gmail.com</a>. Include size, placement, formats, and turnaround preference.</p>
-          </div>
-        </details>
+          <div class="faq-col space-y-4">
+            <details data-aos="fade-up" data-aos-delay="340" class="faq-item p-6 border rounded-xl bg-white">
+              <summary class="text-xl font-semibold">How can I place the order?</summary>
+              <div class="faq-body mt-3 text-gray-600">
+                <p>Send your artwork and instructions to <a href="mailto:unidigitizing2525@gmail.com" class="text-blue-600 hover:underline">unidigitizing2525@gmail.com</a>. Include size, placement, formats, and turnaround preference.</p>
+              </div>
+            </details>
 
-        <details data-aos="fade-up" data-aos-delay="400" class="faq-item p-6 border rounded-xl bg-white">
-          <summary class="text-xl font-semibold">What digitizing software do you use?</summary>
-          <div class="faq-body mt-3 text-gray-600">
-            <p>We use industry-standard tools such as Wilcom to ensure machine-ready files.</p>
-          </div>
-        </details>
+            <details data-aos="fade-up" data-aos-delay="400" class="faq-item p-6 border rounded-xl bg-white">
+              <summary class="text-xl font-semibold">What digitizing software do you use?</summary>
+              <div class="faq-body mt-3 text-gray-600">
+                <p>We use industry-standard tools such as Wilcom to ensure machine-ready files.</p>
+              </div>
+            </details>
 
-        <details data-aos="fade-up" data-aos-delay="460" class="faq-item p-6 border rounded-xl bg-white">
-          <summary class="text-xl font-semibold">What file formats are supported?</summary>
-          <div class="faq-body mt-3 text-gray-600">
-            <p>Common formats include .png, .jpg, .cdr, .pdf, .ai, and machine formats like .dst, .pes, .emb.</p>
-          </div>
-        </details>
+            <details data-aos="fade-up" data-aos-delay="460" class="faq-item p-6 border rounded-xl bg-white">
+              <summary class="text-xl font-semibold">What file formats are supported?</summary>
+              <div class="faq-body mt-3 text-gray-600">
+                <p>Common formats include .png, .jpg, .cdr, .pdf, .ai, and machine formats like .dst, .pes, .emb.</p>
+              </div>
+            </details>
 
-        <details data-aos="fade-up" data-aos-delay="520" class="faq-item p-6 border rounded-xl bg-white">
-          <summary class="text-xl font-semibold">How can I convey instructions to the designer?</summary>
-          <div class="faq-body mt-3 text-gray-600">
-            <p>Please include any of the following when you send artwork:</p>
-            <ul class="mt-3 text-gray-600 ml-5 list-disc space-y-1">
-              <li>Design size: cm, inches, or mm</li>
-              <li>Placement: cap, left chest, full back, beanie, etc.</li>
-              <li>Garment type: towel, blanket, t-shirt, pique knit, fleece, etc.</li>
-              <li>Desired output file(s): .emb, .pof, .dst, .pdf, etc.</li>
-              <li>Turnaround time: standard (24 hrs) or rush (12 hrs or less)</li>
-            </ul>
+            <details data-aos="fade-up" data-aos-delay="520" class="faq-item p-6 border rounded-xl bg-white">
+              <summary class="text-xl font-semibold">How can I convey instructions to the designer?</summary>
+              <div class="faq-body mt-3 text-gray-600">
+                <p>Please include any of the following when you send artwork:</p>
+                <ul class="mt-3 text-gray-600 ml-5 list-disc space-y-1">
+                  <li>Design size: cm, inches, or mm</li>
+                  <li>Placement: cap, left chest, full back, beanie, etc.</li>
+                  <li>Garment type: towel, blanket, t-shirt, pique knit, fleece, etc.</li>
+                  <li>Desired output file(s): .emb, .pof, .dst, .pdf, etc.</li>
+                  <li>Turnaround time: standard (24 hrs) or rush (12 hrs or less)</li>
+                </ul>
+              </div>
+            </details>
           </div>
-        </details>
+        </div>
       </div>
     </section>
 
@@ -545,39 +571,32 @@
 
       // Gallery filters removed (no categorization)
 
-      // FAQ search & smooth accordion
-      const faqSearch = document.getElementById('faqSearch');
-      const faqItems = Array.from(document.querySelectorAll('.faq-item'));
+      // FAQ accordion & smooth open/close (scoped per column)
+      const faqCols = Array.from(document.querySelectorAll('.faq-col'));
 
-      // Initialize FAQ bodies max-height
-      faqItems.forEach(item => {
-        const body = item.querySelector('.faq-body');
-        if (body) {
-          body.style.maxHeight = item.open ? body.scrollHeight + 'px' : '0px';
-        }
-        // sync maxHeight when toggled
-        item.addEventListener('toggle', () => {
-          const b = item.querySelector('.faq-body');
-          if (!b) return;
-          if (item.open) {
-            b.style.maxHeight = b.scrollHeight + 'px';
-          } else {
-            b.style.maxHeight = '0px';
-          }
-        });
-      });
-
-      if (faqSearch) {
-        faqSearch.addEventListener('input', (e) => {
-          const q = e.target.value.toLowerCase().trim();
-          faqItems.forEach(item => {
-            const summary = item.querySelector('summary')?.textContent?.toLowerCase() || '';
-            const body = item.querySelector('.faq-body')?.textContent?.toLowerCase() || '';
-            const matches = q === '' || summary.includes(q) || body.includes(q);
-            item.style.display = matches ? '' : 'none';
+      faqCols.forEach(col => {
+        const items = Array.from(col.querySelectorAll('.faq-item'));
+        items.forEach(item => {
+          const body = item.querySelector('.faq-body');
+          if (body) body.style.maxHeight = item.open ? body.scrollHeight + 'px' : '0px';
+          item.addEventListener('toggle', () => {
+            const b = item.querySelector('.faq-body');
+            if (item.open) {
+              // close other items only within the same column
+              items.forEach(other => {
+                if (other !== item) {
+                  other.open = false;
+                  const ob = other.querySelector('.faq-body');
+                  if (ob) ob.style.maxHeight = '0px';
+                }
+              });
+              if (b) b.style.maxHeight = b.scrollHeight + 'px';
+            } else {
+              if (b) b.style.maxHeight = '0px';
+            }
           });
         });
-      }
+      });
 
       // Initialize AOS (Animate On Scroll)
       try {
