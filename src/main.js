@@ -159,3 +159,53 @@ try {
 } catch (err) {
   console.warn('AOS init failed', err);
 }
+
+// Copy-to-clipboard handler for visible email CTAs
+;(function setupCopyMail() {
+  const buttons = Array.from(document.querySelectorAll('button.copy-mail'));
+  if (!buttons.length) return;
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const email = btn.getAttribute('data-email') || (btn.previousElementSibling && btn.previousElementSibling.textContent) || '';
+      if (!email) return;
+
+      const doSuccess = () => {
+        const prev = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.disabled = true;
+        setTimeout(() => { btn.textContent = prev; btn.disabled = false; }, 1500);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(doSuccess).catch(() => {
+          // fallback
+          fallbackCopy(email, btn);
+        });
+      } else {
+        fallbackCopy(email, btn);
+      }
+    });
+  });
+
+  function fallbackCopy(text, btnEl) {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      const prev = btnEl.textContent;
+      btnEl.textContent = 'Copied!';
+      btnEl.disabled = true;
+      setTimeout(() => { btnEl.textContent = prev; btnEl.disabled = false; }, 1500);
+    } catch (e) {
+      console.error('copy failed', e);
+    }
+  }
+})();
