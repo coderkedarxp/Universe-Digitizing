@@ -152,16 +152,13 @@
         <!-- Image -->
         <img id="modalImg" class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg transition-transform duration-300" />
 
-        <div id="modalCaption" class="mt-3 text-center text-white/90"></div>
-        <div class="mt-2 text-center">
-          <a id="modalDownload" class="inline-block text-sm text-white/90 bg-black/30 px-3 py-1 rounded-md hover:bg-black/45" download>Download</a>
-        </div>
+        <!-- caption and download removed for a cleaner modal view -->
 
         <!-- Button Row (right side) -->
-        <div id="modalControls" class="absolute top-4 right-4 md:flex gap-3 hidden">
-          <button id="zoomInBtn" class="w-10 h-10 rounded-full bg-white/90 shadow-lg text-xl flex items-center justify-center">+</button>
-          <button id="zoomOutBtn" class="w-10 h-10 rounded-full bg-white/90 shadow-lg text-xl flex items-center justify-center">−</button>
-          <button id="closeBtn" class="w-10 h-10 rounded-full bg-white/90 shadow-lg text-xl flex items-center justify-center">×</button>
+        <div id="modalControls" class="absolute top-4 right-4 gap-3 hidden">
+          <button id="zoomInBtn" class="w-10 h-10 rounded-full bg-white/10 text-white/90 hover:bg-white/20 border border-white/10 backdrop-blur-sm text-xl flex items-center justify-center">+</button>
+          <button id="zoomOutBtn" class="w-10 h-10 rounded-full bg-white/10 text-white/90 hover:bg-white/20 border border-white/10 backdrop-blur-sm text-xl flex items-center justify-center">−</button>
+          <button id="closeBtn" class="w-10 h-10 rounded-full bg-white/10 text-white/90 hover:bg-white/20 border border-white/10 backdrop-blur-sm text-xl flex items-center justify-center">×</button>
         </div>
       </div>
     </div>

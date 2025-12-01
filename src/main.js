@@ -1,3 +1,6 @@
+// Basic diagnostic so you can confirm the script loaded in the browser console
+console.log('main.js loaded');
+
 // Mobile menu toggle
 const mobileBtn = document.getElementById('mobileBtn');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -12,14 +15,33 @@ if (mobileBtn && mobileMenu) {
 // Modal / Gallery interactions
 const modal = document.getElementById('imageModal');
 const modalImg = document.getElementById('modalImg');
-const modalCaption = document.getElementById('modalCaption');
-const modalDownload = document.getElementById('modalDownload');
 const zoomInBtn = document.getElementById('zoomInBtn');
 const zoomOutBtn = document.getElementById('zoomOutBtn');
 const closeBtn = document.getElementById('closeBtn');
 const modalControls = document.getElementById('modalControls');
 
 let scale = 1;
+
+// Attach image load/error handlers to help with production debugging and fallback
+if (modalImg) {
+  modalImg.addEventListener('load', () => {
+    // image loaded successfully; ensure controls are visible
+    if (modalControls) modalControls.style.display = 'flex';
+  });
+
+  modalImg.addEventListener('error', (ev) => {
+    const attempted = modalImg.getAttribute('src') || '';
+    console.error('Modal image failed to load:', attempted, ev);
+    // If the attempted src was a sanitized URL, try the raw relative path once
+    const raw = modalImg.dataset.raw || '';
+    if (raw && attempted !== raw) {
+      console.warn('Retrying modal image with raw path:', raw);
+      modalImg.removeAttribute('src');
+      // small timeout to allow browser to retry cleanly
+      setTimeout(() => { modalImg.src = raw; }, 50);
+    }
+  });
+}
 
 // Safe URL sanitizer to avoid javascript: or other unsafe schemes
 function safeUrl(raw) {
@@ -35,19 +57,35 @@ function safeUrl(raw) {
 }
 
 // Open thumbnails (uses data-full for full-res and data-caption for caption)
-document.querySelectorAll('.gallery-thumb').forEach((img) => {
-  img.addEventListener('click', (e) => {
-    const full = img.dataset.full || img.src;
-    const caption = img.dataset.caption || img.alt || '';
+// Use event delegation so clicks are handled even if elements are added later
+document.addEventListener('click', (e) => {
+  // Allow clicks on the image itself, the overlay or the small view button
+  const clickedThumb = e.target.closest && e.target.closest('.gallery-thumb');
+  const clickedItem = e.target.closest && e.target.closest('.gallery-item');
+  const img = clickedThumb || (clickedItem && clickedItem.querySelector('.gallery-thumb'));
+  if (!img) return;
+  try {
+     const full = img.dataset.full || img.src || '';
+     const caption = img.dataset.caption || img.alt || '';
+    if (!modal) {
+      console.error('Modal element not found (#imageModal)');
+      return;
+    }
     // ensure modal becomes visible and centered
     modal.style.display = 'flex';
-    modalImg.src = safeUrl(full) || '';
-    if (modalCaption) modalCaption.textContent = caption;
-    if (modalDownload) modalDownload.href = safeUrl(full) || '';
+    // compute safe URL and assign to image
+    const safe = safeUrl(full);
+    // store raw path on the image element so the error handler can retry if needed
+    if (modalImg) modalImg.dataset.raw = full;
+    // prefer sanitized URL; fall back to raw immediately if sanitizer returned empty
+    modalImg && (modalImg.src = safe || full);
+    
     scale = 1;
-    modalImg.style.transform = 'scale(1)';
-    if (modalControls) modalControls.classList.remove('hidden');
-  });
+    if (modalImg) modalImg.style.transform = 'scale(1)';
+    if (modalControls) modalControls.style.display = 'flex';
+  } catch (err) {
+    console.error('Error opening gallery image', err);
+  }
 });
 
 if (zoomInBtn) {
@@ -67,7 +105,7 @@ if (zoomOutBtn) {
 const closeModal = () => {
   // hide via inline style to ensure it appears above everything when open
   modal.style.display = 'none';
-  if (modalControls) modalControls.classList.add('hidden');
+  if (modalControls) modalControls.style.display = 'none';
 };
 
 if (closeBtn) closeBtn.addEventListener('click', closeModal);
